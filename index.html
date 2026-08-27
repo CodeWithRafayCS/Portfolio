@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abdul Rafay Akhtar · Software Engineer — Cinematic Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body data-appearance="cosmos">
+    <!-- ===== BLACKHOLE BACKGROUND ===== -->
+    <div class="blackhole-box" data-aos="fade-down" data-aos-duration="2000">
+        <video autoplay loop muted playsinline src="videos/blackhole.mp4"></video>
+    </div>
+
+    <!-- ===== WEBGL BACKGROUND ===== -->
+    <canvas id="webgl-background" aria-hidden="true"></canvas>
+    
+    <!-- ===== ATMOSPHERIC OVERLAY ===== -->
+    <div class="atmosphere-overlay" aria-hidden="true"></div>
+    
+    <!-- ===== PARTICLE OVERLAY ===== -->
+    <div class="particle-overlay" aria-hidden="true"></div>
+
+    <!-- ===== CUSTOM CURSOR ===== -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+    <div class="cursor-label" id="cursorLabel"></div>
+
+            <!-- ===== APPEARANCE SWITCHER (DROPDOWN) ===== -->
+        <div class="appearance-switcher" id="appearanceSwitcher">
+            <button class="appearance-toggle" id="appearanceToggle" aria-label="Toggle theme">
+                <i class="fas fa-palette"></i>
+                <span id="currentThemeName">COSMOS</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="appearance-dropdown" id="appearanceDropdown">
+                <button class="appearance-btn active" data-appearance="cosmos" aria-label="Cosmos theme">
+                    <span class="appearance-preview cosmos-preview"></span>
+                    <span class="appearance-name">COSMOS</span>
+                </button>
+                <button class="appearance-btn" data-appearance="lumen" aria-label="Lumen theme">
+                    <span class="appearance-preview lumen-preview"></span>
+                    <span class="appearance-name">LUMEN</span>
+                </button>
+                <button class="appearance-btn" data-appearance="sunset" aria-label="Sunset theme">
+                    <span class="appearance-preview sunset-preview"></span>
+                    <span class="appearance-name">SUNSET</span>
+                </button>
+                <button class="appearance-btn" data-appearance="ocean" aria-label="Ocean theme">
+                    <span class="appearance-preview ocean-preview"></span>
+                    <span class="appearance-name">OCEAN</span>
+                </button>
+            </div>
+        </div>
+   
+    <!-- ===== NAVBAR ===== -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-laptop-code"></i> 
+                <span class="logo-text">AbdulRafay</span>
+            </div>
+            <nav class="nav-links" id="navLinks">
+                <ul>
+                    <li><a href="#hero" class="nav-link active" data-section="hero"><span class="nav-indicator"></span>Home</a></li>
+                    <li><a href="#about" class="nav-link" data-section="about"><span class="nav-indicator"></span>About</a></li>
+                    <li><a href="#education" class="nav-link" data-section="education"><span class="nav-indicator"></span>Education</a></li>
+                    <li><a href="#skills" class="nav-link" data-section="skills"><span class="nav-indicator"></span>Skills</a></li>
+                    <li><a href="#portfolio" class="nav-link" data-section="portfolio"><span class="nav-indicator"></span>Portfolio</a></li>
+                    <li><a href="#experience" class="nav-link" data-section="experience"><span class="nav-indicator"></span>Experience</a></li>
+                    <li><a href="#contact" class="nav-link" data-section="contact"><span class="nav-indicator"></span>Contact</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== HERO ===== -->
+        <section id="hero" class="hero section-padding">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="badge floating-element" data-depth="20">
+                        <i class="fas fa-code"></i> 
+                        <span>Software Engineer</span>
+                        <span class="badge-dot"></span>
+                    </div>
+                    <h1 class="hero-title" data-depth="30">
+                        Abdul Rafay <br />
+                        <span class="hero-title-accent">Akhtar</span>
+                    </h1>
+                    <div class="hero-role-wrapper" data-depth="25">
+                        <span class="static-text">I'm a </span>
+                        <span class="typing-text" id="typingText"></span>
+                        <span class="cursor">|</span>
+                    </div>
+                    <p class="hero-desc" data-depth="15">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        Crafting clean, responsive web experiences — one line of code at a time.
+                    </p>
+                    <div class="hero-cta" data-depth="10">
+                        <a href="#portfolio" class="btn btn-primary magnetic" data-magnetic>
+                            <i class="fas fa-eye"></i> View Work
+                            <span class="btn-shine"></span>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary magnetic" data-magnetic>
+                            <i class="fas fa-paper-plane"></i> Contact
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-video-wrapper floating-element" data-depth="40">
+                    <div class="video-frame layered-depth" id="videoFrame">
+                        <video autoplay muted loop playsinline>
+                            <source src="videos/2278095-hd_1920_1080_30fps.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-overlay"></div>
+                        <div class="video-caption floating-element" data-depth="50">
+                            <i class="fas fa-play-circle"></i> Featured Project
+                        </div>
+                        <div class="video-glow-ring"></div>
+                        <div class="video-particle particle-1"></div>
+                        <div class="video-particle particle-2"></div>
+                        <div class="video-reflection"></div>
+                    </div>
+                    <div class="video-decoration decoration-1"></div>
+                    <div class="video-decoration decoration-2"></div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </section>
+
+        <!-- ===== ABOUT ===== -->
+        <section id="about" class="about section-padding">
+            <div class="container">
+                <div class="about-header">
+                    <h2 class="section-title" data-text="About Me" data-animate="fade-up">About Me</h2>
+                    <p class="about-tagline" data-animate="fade-up" data-delay="200">✨ Transforming ideas into digital experiences ✨</p>
+                </div>
+                
+                <div class="about-wrapper">
+                    <div class="about-image floating-element" data-depth="30" data-animate="fade-right" data-delay="300">
+                        <div class="profile-image-placeholder layered-depth" id="profileImage">
+                            <div class="profile-glow"></div>
+                            <div class="profile-background-layer"></div>
+                            <img src="images/image.jpg" alt="Abdul Rafay Akhtar" class="profile-img" />
+                            <div class="profile-ring"></div>
+                            <div class="profile-float-particle particle-1"></div>
+                            <div class="profile-float-particle particle-2"></div>
+                            <div class="profile-reflection"></div>
+                            <div class="profile-decoration"></div>
+                        </div>
+                    </div>
+                    <div class="about-content" data-animate="fade-left" data-delay="400">
+                        <h3 class="about-name">Hello, I'm Abdul Rafay Akhtar</h3>
+                        <p align="justify">
+                            I am a Computer Science student in my 3rd semester at NUTECH University, Islamabad. I build modern, responsive, and user-focused web applications using React.js, Tailwind CSS, JavaScript, and Spring Boot for Java-based backend development. I am passionate about Web Development, Web3, and emerging technologies, with a strong interest in creating innovative, real-world digital solutions that make a meaningful impact.
+                        </p>
+                        <div class="about-quote glass-panel">
+                            <i class="fas fa-quote-left"></i>
+                            <span>"Every expert was once a beginner. Keep building, keep growing."</span>
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                        <div class="about-cta">
+                            <a href="CV.pdf" download="Abdul_Rafay_Akhtar_CV.pdf" class="btn btn-primary magnetic" data-magnetic>
+                                <i class="fas fa-download"></i> Download CV
+                            </a>
+                            <a href="#portfolio" class="btn btn-secondary magnetic" data-magnetic>
+                                <i class="fas fa-eye"></i> View Projects
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-grid" data-animate="fade-up" data-delay="500">
+                    <div class="stat-item glass-card tilt-card floating-element" data-depth="15" data-tilt>
+                        <div class="stat-icon"><i class="fas fa-code"></i></div>
+                        <div class="stat-number" data-count="7">0</div>
+                        <div class="stat-label">TOTAL PROJECTS</div>
+                        <div class="stat-desc">Innovative web solutions crafted</div>
+                        <div class="stat-border"></div>
+                        <div class="stat-glow"></div>
+                    </div>
+                    <div class="stat-item glass-card tilt-card floating-element" data-depth="20" data-tilt>
+                        <div class="stat-icon"><i class="fas fa-certificate"></i></div>
+                        <div class="stat-number" data-count="0">0</div>
+                        <div class="stat-label">CERTIFICATES</div>
+                        <div class="stat-desc">Professional skills validated</div>
+                        <div class="stat-border"></div>
+                        <div class="stat-glow"></div>
+                    </div>
+                    <div class="stat-item glass-card tilt-card floating-element" data-depth="25" data-tilt>
+                        <div class="stat-icon"><i class="fas fa-briefcase"></i></div>
+                        <div class="stat-number" data-count="1">0</div>
+                        <div class="stat-label">INTERNSHIPS</div>
+                        <div class="stat-desc">Actively seeking opportunities</div>
+                        <div class="stat-border"></div>
+                        <div class="stat-glow"></div>
+                    </div>
+                    <div class="stat-item glass-card tilt-card floating-element" data-depth="15" data-tilt>
+                        <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+                        <div class="stat-number" data-count="24">0</div>
+                        <div class="stat-label">MONTHS OF LEARNING</div>
+                        <div class="stat-desc">Continuous learning journey</div>
+                        <div class="stat-border"></div>
+                        <div class="stat-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== EDUCATION ===== -->
+        <section id="education" class="education section-padding">
+            <div class="container">
+                <h2 class="section-title" data-text="Academic Background" data-animate="fade-up">Academic Background</h2>
+                
+                <div class="education-wrapper">
+                    <div class="education-card glass-card tilt-card floating-element" data-depth="20" data-animate="fade-right" data-delay="300" data-tilt>
+                        <div class="education-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="education-content">
+                            <h3>BS Computer Science</h3>
+                            <p class="education-institution">NUTECH University, Islamabad</p>
+                            <p class="education-meta">2025 – Present · 3rd Semester</p>
+                            <p class="education-location"><i class="fas fa-map-marker-alt"></i> Islamabad, Pakistan</p>
+                            <p class="education-description" align="justify">
+                                Currently pursuing a Bachelor of Science in Computer Science at NUTECH University, Islamabad. 
+                                Completed 2 semesters with coursework in OOP (Java), Calculus and Analytical Geometry, Digital Logic Design, 
+                                Discrete Structures, and Web Development. Actively building real-world projects alongside academics.
+                            </p>
+                        </div>
+                        <div class="education-decoration"></div>
+                    </div>
+                </div>
+
+                <div class="currently-working glass-panel futuristic-status" data-animate="fade-up" data-delay="400">
+                    <div class="status-indicator"></div>
+                    <h3 class="working-title">Currently Working On</h3>
+                    <p align="justify">
+                        Currently building real-world projects with React.js, Tailwind CSS, and Vite while exploring Web3 and Spring Boot for Java-based backend development. Focused on writing clean, responsive code and preparing for my first internship in frontend or full-stack development.
+                    </p>
+                    <div class="scan-line"></div>
+                    <div class="grid-overlay"></div>
+                    <div class="energy-particles">
+                        <span class="energy-particle"></span>
+                        <span class="energy-particle"></span>
+                        <span class="energy-particle"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SKILLS ===== -->
+        <section id="skills" class="skills section-padding">
+            <div class="container">
+                <h2 class="section-title" data-text="My Skills" data-animate="fade-up">My Skills</h2>
+                
+                <div class="skills-wrapper control-room">
+                    <div class="skills-category glass-card tilt-card floating-element" data-depth="25" data-animate="fade-right" data-delay="300" data-tilt>
+                        <h3 class="skills-category-title"><i class="fas fa-code"></i> Java Full Stack Development</h3>
+                        <div class="skill-bar-group">
+                            <div class="skill-bar-item" data-skill>
+                                <div class="skill-bar-label">
+                                    <span>HTML5 &amp; CSS3</span>
+                                    <span class="skill-percent">85%</span>
+                                </div>
+                                <div class="skill-bar-track">
+                                    <div class="skill-bar-fill" data-width="85"></div>
+                                    <div class="skill-bar-glow"></div>
+                                    <div class="skill-energy-line"></div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-item" data-skill>
+                                <div class="skill-bar-label">
+                                    <span>JavaScript</span>
+                                    <span class="skill-percent">65%</span>
+                                </div>
+                                <div class="skill-bar-track">
+                                    <div class="skill-bar-fill" data-width="65"></div>
+                                    <div class="skill-bar-glow"></div>
+                                    <div class="skill-energy-line"></div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-item" data-skill>
+                                <div class="skill-bar-label">
+                                    <span>React.js</span>
+                                    <span class="skill-percent">60%</span>
+                                </div>
+                                <div class="skill-bar-track">
+                                    <div class="skill-bar-fill" data-width="60"></div>
+                                    <div class="skill-bar-glow"></div>
+                                    <div class="skill-energy-line"></div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-item" data-skill>
+                                <div class="skill-bar-label">
+                                    <span>Spring Boot</span>
+                                    <span class="skill-percent">55%</span>
+                                </div>
+                                <div class="skill-bar-track">
+                                    <div class="skill-bar-fill" data-width="55"></div>
+                                    <div class="skill-bar-glow"></div>
+                                    <div class="skill-energy-line"></div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-item" data-skill>
+                                <div class="skill-bar-label">
+                                    <span>Tailwind CSS</span>
+                                    <span class="skill-percent">70%</span>
+                                </div>
+                                <div class="skill-bar-track">
+                                    <div class="skill-bar-fill" data-width="70"></div>
+                                    <div class="skill-bar-glow"></div>
+                                    <div class="skill-energy-line"></div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-item" data-skill>
+                                <div class="skill-bar-label">
+                                    <span>Responsive Design</span>
+                                    <span class="skill-percent">75%</span>
+                                </div>
+                                <div class="skill-bar-track">
+                                    <div class="skill-bar-fill" data-width="75"></div>
+                                    <div class="skill-bar-glow"></div>
+                                    <div class="skill-energy-line"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-decoration decoration-1"></div>
+                        <div class="skill-decoration decoration-2"></div>
+                    </div>
+
+                    <div class="skills-category glass-card tilt-card floating-element" data-depth="30" data-animate="fade-left" data-delay="400" data-tilt>
+                        <h3 class="skills-category-title"><i class="fas fa-tools"></i> Programming &amp; Tools</h3>
+                        <div class="skill-bar-group">
+                            <div class="skill-bar-item" data-skill>
+                                <div class="skill-bar-label">
+                                    <span>C++</span>
+                                    <span class="skill-percent">70%</span>
+                                </div>
+                                <div class="skill-bar-track">
+                                    <div class="skill-bar-fill" data-width="80"></div>
+                                    <div class="skill-bar-glow"></div>
+                                    <div class="skill-energy-line"></div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-item" data-skill>
+                                <div class="skill-bar-label">
+                                    <span>Git &amp; GitHub</span>
+                                    <span class="skill-percent">85%</span>
+                                </div>
+                                <div class="skill-bar-track">
+                                    <div class="skill-bar-fill" data-width="85"></div>
+                                    <div class="skill-bar-glow"></div>
+                                    <div class="skill-energy-line"></div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-item" data-skill>
+                                <div class="skill-bar-label">
+                                    <span>Java</span>
+                                    <span class="skill-percent">80%</span>
+                                </div>
+                                <div class="skill-bar-track">
+                                    <div class="skill-bar-fill" data-width="70"></div>
+                                    <div class="skill-bar-glow"></div>
+                                    <div class="skill-energy-line"></div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-item" data-skill>
+                                <div class="skill-bar-label">
+                                    <span>VS Code</span>
+                                    <span class="skill-percent">90%</span>
+                                </div>
+                                <div class="skill-bar-track">
+                                    <div class="skill-bar-fill" data-width="90"></div>
+                                    <div class="skill-bar-glow"></div>
+                                    <div class="skill-energy-line"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-decoration decoration-3"></div>
+                        <div class="skill-decoration decoration-4"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PORTFOLIO SHOWCASE ===== -->
+        <section id="portfolio" class="portfolio section-padding">
+            <div class="container">
+                <div class="portfolio-header">
+                    <h2 class="section-title" data-text="Portfolio Showcase" data-animate="fade-up">Portfolio Showcase</h2>
+                    <p class="portfolio-tagline" data-animate="fade-up" data-delay="200">
+                        Explore my journey through projects, certifications, and technical expertise. Each 
+                        section represents a milestone in my continuous learning path.
+                    </p>
+                </div>
+
+                <!-- Tab Navigation -->
+                <div class="portfolio-tabs glass-panel floating-element" data-depth="15" data-animate="fade-up" data-delay="300">
+                    <button class="portfolio-tab active" data-tab="projects" aria-label="Projects tab">
+                        <i class="fas fa-code"></i> Projects
+                        <span class="tab-indicator"></span>
+                    </button>
+                    <button class="portfolio-tab" data-tab="certificates" aria-label="Certificates tab">
+                        <i class="fas fa-certificate"></i> Certificates
+                        <span class="tab-indicator"></span>
+                    </button>
+                    <button class="portfolio-tab" data-tab="techstack" aria-label="Tech Stack tab">
+                        <i class="fas fa-layer-group"></i> Tech Stack
+                        <span class="tab-indicator"></span>
+                    </button>
+                </div>
+
+                <!-- Tab Content: Projects -->
+                <div class="portfolio-content active" id="tab-projects">
+                    <div class="projects-showcase-grid digital-exhibition">
+                        <div class="project-showcase-card glass-card tilt-card floating-element" data-depth="20" data-tilt data-animate="fade-up" style="transition-delay:0.1s">
+                            <div class="project-showcase-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <h3>Student Grading System</h3>
+                            <p>C++ · OOP · File Handling — Large-scale console-based system supporting 100+ students with secure login and result generation.</p>
+                            <div class="project-hover-effect"></div>
+                            <div class="project-reflection"></div>
+                        </div>
+                        <div class="project-showcase-card glass-card tilt-card floating-element" data-depth="25" data-tilt data-animate="fade-up" style="transition-delay:0.15s">
+                            <div class="project-showcase-icon"><i class="fas fa-gamepad"></i></div>
+                            <h3>Tetris Game (SFML)</h3>
+                            <p>C++ · SFML · OOP — Fully functional Tetris with main menu, score tracking, leaderboard, and increasing difficulty.</p>
+                            <div class="project-hover-effect"></div>
+                            <div class="project-reflection"></div>
+                        </div>
+                        <div class="project-showcase-card glass-card tilt-card floating-element" data-depth="30" data-tilt data-animate="fade-up" style="transition-delay:0.2s">
+                            <div class="project-showcase-icon"><i class="fas fa-question-circle"></i></div>
+                            <h3>Quiz & Examination Simulator</h3>
+                            <p>Java · Swing · OOP — Desktop application with gradient UI, secure login, timer-based quizzes, and instant result generation.</p>
+                            <div class="project-hover-effect"></div>
+                            <div class="project-reflection"></div>
+                        </div>
+                        <div class="project-showcase-card glass-card tilt-card floating-element" data-depth="20" data-tilt data-animate="fade-up" style="transition-delay:0.25s">
+                            <div class="project-showcase-icon"><i class="fas fa-cloud-sun"></i></div>
+                            <h3>Bashaar-crm</h3>
+                            <p>Bashaar AI CRM - Internal sales operating system.</p>
+                            <div class="project-hover-effect"></div>
+                            <div class="project-reflection"></div>
+                        </div>
+                        <div class="project-showcase-card glass-card tilt-card floating-element" data-depth="25" data-tilt data-animate="fade-up" style="transition-delay:0.3s">
+                            <div class="project-showcase-icon"><i class="fas fa-tasks"></i></div>
+                            <h3>Deadline - Rescue</h3>
+                            <p>Coming Soon.</p>
+                            <div class="project-hover-effect"></div>
+                            <div class="project-reflection"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Content: Certificates -->
+                <div class="portfolio-content" id="tab-certificates">
+                    <div class="certificates-placeholder glass-panel tilt-card floating-element" data-depth="20" data-tilt>
+                        <div class="holographic-icon">
+                            <i class="fas fa-certificate"></i>
+                            <div class="energy-ring"></div>
+                            <div class="energy-ring energy-ring-2"></div>
+                            <div class="holographic-glow"></div>
+                        </div>
+                        <h3>Certificates Coming Soon</h3>
+                        <p>I'm currently building my certification portfolio. Check back later for my professional certifications and achievements.</p>
+                        <div class="certificates-grid"></div>
+                        <div class="certificate-particles">
+                            <span class="cert-particle"></span>
+                            <span class="cert-particle"></span>
+                            <span class="cert-particle"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Content: Tech Stack -->
+                <div class="portfolio-content" id="tab-techstack">
+                    <div class="techstack-grid tech-constellation">
+                        <div class="techstack-item floating-element" data-depth="15" data-animate="fade-up" style="transition-delay:0.05s"><i class="fab fa-html5"></i><span>HTML5</span></div>
+                        <div class="techstack-item floating-element" data-depth="20" data-animate="fade-up" style="transition-delay:0.1s"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+                        <div class="techstack-item floating-element" data-depth="25" data-animate="fade-up" style="transition-delay:0.15s"><i class="fab fa-js"></i><span>JavaScript</span></div>
+                        <div class="techstack-item floating-element" data-depth="30" data-animate="fade-up" style="transition-delay:0.2s"><i class="fab fa-react"></i><span>React.js</span></div>
+                        <div class="techstack-item floating-element" data-depth="15" data-animate="fade-up" style="transition-delay:0.25s"><i class="fab fa-tailwind"></i><span>Tailwind CSS</span></div>
+                        <div class="techstack-item floating-element" data-depth="20" data-animate="fade-up" style="transition-delay:0.3s"><i class="fab fa-java"></i><span>Java</span></div>
+                        <div class="techstack-item floating-element" data-depth="25" data-animate="fade-up" style="transition-delay:0.35s"><i class="fas fa-coffee"></i><span>Spring Boot</span></div>
+                        <div class="techstack-item floating-element" data-depth="30" data-animate="fade-up" style="transition-delay:0.4s"><i class="fab fa-node-js"></i><span>Node.js</span></div>
+                        <div class="techstack-item floating-element" data-depth="15" data-animate="fade-up" style="transition-delay:0.45s"><i class="fas fa-code"></i><span>C++</span></div>
+                        <div class="techstack-item floating-element" data-depth="20" data-animate="fade-up" style="transition-delay:0.5s"><i class="fas fa-code"></i><span>C</span></div>
+                        <div class="techstack-item floating-element" data-depth="25" data-animate="fade-up" style="transition-delay:0.55s"><i class="fab fa-git-alt"></i><span>Git</span></div>
+                        <div class="techstack-item floating-element" data-depth="30" data-animate="fade-up" style="transition-delay:0.6s"><i class="fab fa-github"></i><span>GitHub</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== EXPERIENCE ===== -->
+        <section id="experience" class="experience section-padding">
+            <div class="container">
+                <h2 class="section-title" data-text="Experience" data-animate="fade-up">Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-particle"></div>
+                    <div class="timeline-item" data-animate="fade-right" data-delay="200">
+                        <div class="timeline-icon floating-element" data-depth="20"><i class="fas fa-briefcase"></i></div>
+                        <div class="timeline-content glass-card tilt-card floating-element" data-depth="25" data-tilt>
+                            <h3>Full Stack Developer Intern</h3>
+                            <span class="timeline-date">Summer 2026</span>
+                            <p>Built a task management dashboard with authentication, CRUD operations, and real-time UI updates.</p>
+                            <div class="timeline-glow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT ===== -->
+        <section id="contact" class="contact section-padding">
+            <div class="container">
+                <div class="contact-header">
+                    <h2 class="section-title" data-text="Contact Me" data-animate="fade-up">Contact Me</h2>
+                    <p class="contact-tagline" data-animate="fade-up" data-delay="200">
+                        Have a project in mind or want to discuss an internship opportunity? I'd love to hear from you!
+                    </p>
+                </div>
+
+                <div class="contact-wrapper">
+                    <div class="contact-form-wrapper glass-card tilt-card floating-element" data-depth="25" data-animate="fade-right" data-delay="300" data-tilt>
+                        <h3 class="contact-form-title"><i class="fas fa-envelope"></i> Contact</h3>
+                        <p class="contact-form-subtitle">Want to discuss something? Send me a message and let's talk.</p>
+                        
+                        <form class="contact-form" id="contactForm" action="https://formspree.io/f/mvkopvdb" method="POST">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required />
+                            <div class="input-glow"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required />
+                            <div class="input-glow"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+                            <div class="input-glow"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary magnetic" data-magnetic>
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                        <div class="form-feedback" id="formFeedback"></div>
+                    </form>
+                    </div>
+
+                    <div class="contact-info-wrapper" data-animate="fade-left" data-delay="400">
+                        <div class="contact-info-item glass-card tilt-card floating-element" data-depth="20" data-tilt>
+                            <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="contact-info-content">
+                                <h4>Email</h4>
+                                <p>RAFAY99940@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item glass-card tilt-card floating-element" data-depth="25" data-tilt>
+                            <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="contact-info-content">
+                                <h4>Location</h4>
+                                <p>Islamabad, Pakistan</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item glass-card tilt-card floating-element" data-depth="30" data-tilt>
+                            <div class="contact-info-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <div class="contact-info-content">
+                                <h4>Education</h4>
+                                <p>3rd Semester</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item glass-card tilt-card floating-element" data-depth="20" data-tilt>
+                            <div class="contact-info-icon"><i class="fas fa-briefcase"></i></div>
+                            <div class="contact-info-content">
+                                <h4>Status</h4>
+                                <p>Seeking Internship 2028</p>
+                            </div>
+                        </div>
+                        <div class="contact-social-section glass-panel floating-element" data-depth="25">
+                            <h4 class="connect-title"><i class="fas fa-link"></i> Connect With Me</h4>
+                            <div class="connect-items">
+                                <a href="www.linkedin.com/in/abdulrafayakhtar" target="_blank" rel="noopener noreferrer" class="connect-item" data-hover>
+                                    <i class="fab fa-linkedin-in"></i>
+                                    <span>Let's Connect on LinkedIn</span>
+                                </a>
+                                <a href="https://www.instagram.com/abdul._.rafay89" target="_blank" rel="noopener noreferrer" class="connect-item" data-hover>
+                                    <i class="fab fa-instagram"></i>
+                                    <span>@abdul._.rafay89</span>
+                                </a>
+                                <a href="https://github.com/CodeWithRafayCS" target="_blank" rel="noopener noreferrer" class="connect-item" data-hover>
+                                    <i class="fab fa-github"></i>
+                                    <span>@CodeWithRafayCS</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; <span id="year"></span> Abdul Rafay Akhtar · Built with <i class="fas fa-heart"></i></p>
+            <div class="footer-social-links">
+                <a href="www.linkedin.com/in/abdulrafayakhtar" target="_blank" class="footer-social-link linkedin" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/CodeWithRafayCS" target="_blank" class="footer-social-link github" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.instagram.com/abdul._.rafay89" target="_blank" class="footer-social-link instagram" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://x.com/abdulrafay523" target="_blank" class="footer-social-link twitter" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.facebook.com/abdul.rafay.153216" target="_blank" class="footer-social-link facebook" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            <button class="back-to-top" id="backToTop" aria-label="Back to top">
+                <i class="fas fa-chevron-up"></i>
+                <span class="back-to-top-glow"></span>
+            </button>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="webgl.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
