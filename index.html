@@ -464,20 +464,34 @@
 
                 <!-- Tab Content: Certificates -->
                 <div class="portfolio-content" id="tab-certificates">
-                    <div class="certificates-placeholder glass-panel tilt-card floating-element" data-depth="20" data-tilt>
-                        <div class="holographic-icon">
-                            <i class="fas fa-certificate"></i>
-                            <div class="energy-ring"></div>
-                            <div class="energy-ring energy-ring-2"></div>
-                            <div class="holographic-glow"></div>
+                    <div class="certificates-grid">
+                        <div class="certificate-card glass-card tilt-card floating-element" data-depth="20" data-tilt data-animate="fade-up" style="transition-delay:0.1s" data-cert-image="assets/certificates/ai-certificate.jpg" data-cert-title="AI Certificate">
+                            <div class="certificate-thumb">
+                                <img src="assets/certificates/ai-certificate.jpg" alt="AI Certificate" loading="lazy" />
+                                <div class="certificate-thumb-overlay">
+                                    <i class="fas fa-expand"></i>
+                                    <span>View Certificate</span>
+                                </div>
+                            </div>
+                            <div class="certificate-card-body">
+                                <div class="certificate-card-icon"><i class="fas fa-certificate"></i></div>
+                                <h3>Artifical Intelligence Certificate</h3>
+                            </div>
+                            <div class="project-reflection"></div>
                         </div>
-                        <h3>Certificates Coming Soon</h3>
-                        <p>I'm currently building my certification portfolio. Check back later for my professional certifications and achievements.</p>
-                        <div class="certificates-grid"></div>
-                        <div class="certificate-particles">
-                            <span class="cert-particle"></span>
-                            <span class="cert-particle"></span>
-                            <span class="cert-particle"></span>
+                        <div class="certificate-card glass-card tilt-card floating-element" data-depth="25" data-tilt data-animate="fade-up" style="transition-delay:0.15s" data-cert-image="assets/certificates/freelancing-certificate.jpg" data-cert-title="Freelancing Certificate">
+                            <div class="certificate-thumb">
+                                <img src="assets/certificates/freelancing-certificate.jpg" alt="Freelancing Certificate" loading="lazy" />
+                                <div class="certificate-thumb-overlay">
+                                    <i class="fas fa-expand"></i>
+                                    <span>View Certificate</span>
+                                </div>
+                            </div>
+                            <div class="certificate-card-body">
+                                <div class="certificate-card-icon"><i class="fas fa-certificate"></i></div>
+                                <h3>Freelancing Certificate</h3>
+                            </div>
+                            <div class="project-reflection"></div>
                         </div>
                     </div>
                 </div>
@@ -639,6 +653,18 @@
             </button>
         </div>
     </footer>
+
+    <!-- ===== CERTIFICATE MODAL ===== -->
+    <div class="certificate-modal" id="certificateModal" aria-hidden="true">
+        <div class="certificate-modal-backdrop" id="certificateModalBackdrop"></div>
+        <button class="certificate-modal-close" id="certificateModalClose" aria-label="Close certificate">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="certificate-modal-content">
+            <img class="certificate-modal-img" id="certificateModalImg" src="" alt="Certificate" />
+            <h3 class="certificate-modal-title" id="certificateModalTitle"></h3>
+        </div>
+    </div>
 
     <!-- ===== SCRIPTS ===== -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
