@@ -31,6 +31,7 @@
     initCounters();
     initSkillBars();
     initPortfolioTabs();
+    initCertificateModal();
     initContactForm();
     initBackToTop();
   });
@@ -444,6 +445,46 @@
         contents.forEach(c => c.classList.remove('active'));
         if (target) target.classList.add('active');
       });
+    });
+  }
+
+  /* ============================== CERTIFICATE MODAL ============================== */
+  function initCertificateModal() {
+    const cards = document.querySelectorAll('.certificate-card');
+    const modal = document.getElementById('certificateModal');
+    const backdrop = document.getElementById('certificateModalBackdrop');
+    const closeBtn = document.getElementById('certificateModalClose');
+    const modalImg = document.getElementById('certificateModalImg');
+    const modalTitle = document.getElementById('certificateModalTitle');
+    if (!cards.length || !modal) return;
+
+    const openModal = (src, title) => {
+      modalImg.src = src;
+      modalImg.alt = title;
+      modalTitle.textContent = title;
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+    };
+
+    const closeModal = () => {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+    };
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const src = card.dataset.certImage;
+        const title = card.dataset.certTitle || 'Certificate';
+        if (src) openModal(src, title);
+      });
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (backdrop) backdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
     });
   }
 
